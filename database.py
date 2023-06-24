@@ -5,7 +5,7 @@ from marshmallow.exceptions import ValidationError
 from config import Config
 DATABASE_URI, DATABASE_NAME, COLLECTION_NAME = Config.DATABASE_URI, Config.DATABASE_NAME, Config.COLLECTION_NAME
 
-client = AsyncIOMotorClient(DATABASE_URI)
+self._client = AsyncIOMotorClient(DATABASE_URI)
 db = client[DATABASE_NAME]
 instance = Instance(db)
 
