@@ -2,6 +2,6 @@ TgCrypto
 pyrogram
 Dnspython
 pyromod
-umongo==2.3.0
-motor==2.3.0
+Umongo==3.0.1
+Motor==2.5.1
 pytz
