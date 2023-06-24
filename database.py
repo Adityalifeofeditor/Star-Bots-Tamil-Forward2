@@ -1,14 +1,13 @@
 from pymongo.errors import DuplicateKeyError
 from umongo import Instance, Document, fields
-from motor.motor_asyncio import AsyncIOMotorClient
+import pymongo
 from marshmallow.exceptions import ValidationError
 from config import Config
 DATABASE_URI, DATABASE_NAME, COLLECTION_NAME = Config.DATABASE_URI, Config.DATABASE_NAME, Config.COLLECTION_NAME
 
-self._client = AsyncIOMotorClient(DATABASE_URI)
-db = client[DATABASE_NAME]
-instance = Instance(db)
-
+myclient = pymongo.MongoClient(DATABASE_URI)
+mydb = myclient[DATABASE_NAME]
+instance = Instance(mydb)
 
 @instance.register
 class Data(Document):
